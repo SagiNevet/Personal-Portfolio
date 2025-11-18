@@ -82,6 +82,7 @@ img {
 
 .site-header {
   padding: 2rem clamp(1.5rem, 5vw, 5rem) 3rem;
+  padding-top: 6rem;
   min-height: 70vh;
 }
 
@@ -94,10 +95,13 @@ img {
   padding: 0.6rem 1rem;
   background: rgba(5, 7, 12, 0.7);
   backdrop-filter: blur(12px);
-  position: sticky;
+  position: fixed;
   top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 3rem);
+  max-width: 1200px;
   z-index: 100;
-  max-width: 100%;
 }
 
 .logo {
@@ -330,6 +334,9 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .deep-projects {
@@ -348,6 +355,19 @@ main {
   border-radius: 24px;
   padding: 1rem 1.2rem;
   background: rgba(255, 255, 255, 0.02);
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.list-cards article h3,
+.list-cards article p {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .pill-grid {
@@ -615,7 +635,7 @@ main {
   visibility: hidden;
   transform: translateY(20px);
   transition: opacity 300ms ease, visibility 300ms ease, transform 300ms ease;
-  z-index: 99;
+  z-index: 98;
   box-shadow: 0 10px 30px rgba(124, 93, 255, 0.3);
 }
 
@@ -725,11 +745,13 @@ main {
     border-radius: 24px;
     max-width: 100%;
     overflow-x: hidden;
-    position: sticky !important;
+    position: fixed !important;
     top: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     z-index: 100 !important;
-    width: calc(100% - 2rem);
-    margin: 0 auto;
+    width: calc(100% - 2rem) !important;
+    margin: 0 !important;
   }
 
   .back-to-top {
@@ -798,6 +820,34 @@ main {
     padding: clamp(1.5rem, 3vw, 2.5rem);
     background: rgba(8, 12, 20, 0.95) !important;
     border-color: var(--border) !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .panel.duo {
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .panel.duo > div {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .list-cards article {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .list-cards article h3,
+  .list-cards article p {
     max-width: 100% !important;
     overflow-x: hidden !important;
     word-wrap: break-word !important;

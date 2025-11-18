@@ -109,7 +109,7 @@ const backToTopBtn = document.getElementById("back-to-top");
 
 if (backToTopBtn) {
   const toggleBackToTop = () => {
-    if (window.scrollY > 300) {
+    if (window.scrollY > 200) {
       backToTopBtn.classList.add("visible");
     } else {
       backToTopBtn.classList.remove("visible");
@@ -124,6 +124,7 @@ if (backToTopBtn) {
   });
 
   window.addEventListener("scroll", toggleBackToTop);
+  document.addEventListener("scroll", toggleBackToTop);
   toggleBackToTop();
 }
 
