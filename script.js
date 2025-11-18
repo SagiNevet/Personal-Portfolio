@@ -92,3 +92,22 @@ document.addEventListener("scroll", () => {
   header.style.backgroundPositionY = `${scrolled * 0.1}px`;
 });
 
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
+    if (href === "#" || href === "") return;
+    
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const navHeight = 80;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  });
+});
+
