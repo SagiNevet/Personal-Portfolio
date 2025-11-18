@@ -685,6 +685,15 @@ main {
 
   .panel {
     padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: rgba(8, 12, 20, 0.95) !important;
+    border-color: var(--border) !important;
+  }
+
+  .panel.deep-projects {
+    background: rgba(8, 12, 20, 0.95) !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .detail-image {
@@ -693,16 +702,21 @@ main {
   }
 
   .deep-projects .project-detail {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--border);
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: var(--border) !important;
     padding: 1.5rem;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .project-detail h3,
   .project-detail h4,
   .project-detail p,
   .project-detail li {
-    color: var(--text);
+    color: var(--text) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .project-detail .icon {
@@ -714,8 +728,15 @@ main {
   }
 
   .detail-grid section {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--border);
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--border) !important;
+  }
+
+  .detail-grid section h4,
+  .detail-grid section p,
+  .detail-grid section li {
+    color: var(--text) !important;
+    opacity: 1 !important;
   }
 }
 
@@ -799,12 +820,32 @@ body.light .project-detail h3,
 body.light .project-detail h4,
 body.light .project-detail p,
 body.light .project-detail li {
-  color: #0a0a0a;
+  color: #0a0a0a !important;
 }
 
 body.light .detail-grid section {
-  background: rgba(255, 255, 255, 0.6);
-  border-color: rgba(10, 10, 10, 0.2);
+  background: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(10, 10, 10, 0.2) !important;
+}
+
+body.light .detail-grid section h4,
+body.light .detail-grid section p,
+body.light .detail-grid section li {
+  color: #0a0a0a !important;
+}
+
+@media (max-width: 768px) {
+  body.light .panel.deep-projects {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  body.light .deep-projects .project-detail {
+    background: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  body.light .detail-grid section {
+    background: rgba(255, 255, 255, 0.7) !important;
+  }
 }
 
 body.light .panel {

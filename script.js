@@ -121,15 +121,36 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     if (target) {
       e.preventDefault();
       const navHeight = 80;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
       
       const revealParent = target.closest(".reveal") || target;
+      const sectionParent = target.closest("section") || target.closest(".panel");
+      
       if (revealParent && revealParent.classList.contains("reveal")) {
         revealParent.classList.add("visible");
+        revealParent.style.opacity = "1";
+        revealParent.style.visibility = "visible";
+      }
+      
+      if (sectionParent) {
+        sectionParent.style.opacity = "1";
+        sectionParent.style.visibility = "visible";
+        sectionParent.style.display = "";
+        const allReveals = sectionParent.querySelectorAll(".reveal");
+        allReveals.forEach((el) => {
+          el.classList.add("visible");
+          el.style.opacity = "1";
+          el.style.visibility = "visible";
+        });
       }
       
       const allInSection = (revealParent || target).querySelectorAll(".reveal");
-      allInSection.forEach((el) => el.classList.add("visible"));
+      allInSection.forEach((el) => {
+        el.classList.add("visible");
+        el.style.opacity = "1";
+        el.style.visibility = "visible";
+      });
+      
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
       
       window.scrollTo({
         top: targetPosition,
@@ -137,8 +158,16 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       });
       
       setTimeout(() => {
-        const allInSectionAfter = (revealParent || target).querySelectorAll(".reveal");
-        allInSectionAfter.forEach((el) => el.classList.add("visible"));
+        if (sectionParent) {
+          sectionParent.style.opacity = "1";
+          sectionParent.style.visibility = "visible";
+          const allRevealsAfter = sectionParent.querySelectorAll(".reveal");
+          allRevealsAfter.forEach((el) => {
+            el.classList.add("visible");
+            el.style.opacity = "1";
+            el.style.visibility = "visible";
+          });
+        }
       }, 300);
     }
   });
