@@ -339,6 +339,15 @@ main {
   overflow-wrap: break-word;
 }
 
+.panel.duo > div {
+  text-align: left;
+}
+
+.panel.duo p {
+  text-align: left;
+  line-height: 1.8;
+}
+
 .deep-projects {
   display: flex;
   flex-direction: column;
@@ -637,6 +646,9 @@ main {
   transition: opacity 300ms ease, visibility 300ms ease, transform 300ms ease;
   z-index: 98;
   box-shadow: 0 10px 30px rgba(124, 93, 255, 0.3);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .back-to-top.visible {
@@ -755,10 +767,13 @@ main {
   }
 
   .back-to-top {
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: 5rem;
+    right: 1rem;
     width: 48px;
     height: 48px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .back-to-top svg {
@@ -837,6 +852,12 @@ main {
     overflow-x: hidden !important;
     word-wrap: break-word !important;
     word-break: break-word !important;
+    text-align: left !important;
+  }
+
+  .panel.duo p {
+    text-align: left !important;
+    line-height: 1.8 !important;
   }
 
   .list-cards article {
