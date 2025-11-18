@@ -597,13 +597,30 @@ main {
 
 @media (max-width: 768px) {
   .reveal {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+    display: block !important;
   }
   
   .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+  }
+
+  section.reveal,
+  .panel.reveal {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  section.reveal.visible,
+  .panel.reveal.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
   }
 }
 
@@ -691,9 +708,27 @@ main {
 
   .panel.deep-projects {
     background: rgba(8, 12, 20, 0.95) !important;
-    display: flex !important;
+    display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .deep-projects {
+    display: block !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  section#project-details {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 
   .detail-image {
@@ -704,10 +739,33 @@ main {
   .deep-projects .project-detail {
     background: rgba(255, 255, 255, 0.12) !important;
     border-color: var(--border) !important;
-    padding: 1.5rem;
-    display: flex !important;
+    padding: 1.5rem !important;
+    display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin-bottom: 2rem !important;
+  }
+
+  article.project-detail {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  #techpulse,
+  #trackademics,
+  #holidays,
+  #zaprest {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: auto !important;
+    height: auto !important;
   }
 
   .project-detail h3,
@@ -724,12 +782,20 @@ main {
   }
 
   .detail-grid {
-    grid-template-columns: 1fr;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .detail-grid section {
+    display: block !important;
     background: rgba(255, 255, 255, 0.08) !important;
     border-color: var(--border) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 1rem 1.2rem !important;
   }
 
   .detail-grid section h4,
@@ -737,6 +803,19 @@ main {
   .detail-grid section li {
     color: var(--text) !important;
     opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  .project-detail header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .project-detail header .icon {
+    display: inline-block !important;
+    visibility: visible !important;
   }
 }
 
