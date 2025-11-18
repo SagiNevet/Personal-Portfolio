@@ -105,6 +105,28 @@ const checkVisibleOnLoad = () => {
 window.addEventListener("load", checkVisibleOnLoad);
 checkVisibleOnLoad();
 
+const backToTopBtn = document.getElementById("back-to-top");
+
+if (backToTopBtn) {
+  const toggleBackToTop = () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add("visible");
+    } else {
+      backToTopBtn.classList.remove("visible");
+    }
+  };
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  window.addEventListener("scroll", toggleBackToTop);
+  toggleBackToTop();
+}
+
 document.addEventListener("scroll", () => {
   const header = document.querySelector(".site-header");
   if (!header) return;

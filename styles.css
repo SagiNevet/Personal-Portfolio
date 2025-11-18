@@ -25,6 +25,9 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
   transition: background 300ms ease, color 300ms ease;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .intro-loader {
@@ -93,7 +96,8 @@ img {
   backdrop-filter: blur(12px);
   position: sticky;
   top: 1.5rem;
-  z-index: 10;
+  z-index: 100;
+  max-width: 100%;
 }
 
 .logo {
@@ -307,6 +311,10 @@ h3 {
 
 main {
   padding: 0 clamp(1.5rem, 5vw, 5rem) 4rem;
+  overflow-x: hidden;
+  max-width: 100%;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .panel {
@@ -575,12 +583,60 @@ main {
   background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   font: inherit;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .site-footer {
   text-align: center;
   padding: 2rem;
   color: var(--text-muted);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  border: 1px solid var(--border);
+  color: #05070c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 300ms ease, visibility 300ms ease, transform 300ms ease;
+  z-index: 99;
+  box-shadow: 0 10px 30px rgba(124, 93, 255, 0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(124, 93, 255, 0.4);
+}
+
+.back-to-top:active {
+  transform: translateY(-2px);
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
 }
 
 .reveal {
@@ -636,6 +692,25 @@ main {
 }
 
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  p, h1, h2, h3, h4, h5, h6, li, span, a, div {
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto;
+  }
+
   .intro-loader {
     z-index: 99999;
   }
@@ -648,6 +723,25 @@ main {
   .nav {
     flex-wrap: wrap;
     border-radius: 24px;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: sticky !important;
+    top: 1rem !important;
+    z-index: 100 !important;
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+  }
+
+  .back-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .back-to-top svg {
+    width: 18px;
+    height: 18px;
   }
 
   .nav-links {
@@ -704,6 +798,10 @@ main {
     padding: clamp(1.5rem, 3vw, 2.5rem);
     background: rgba(8, 12, 20, 0.95) !important;
     border-color: var(--border) !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
 
   .panel.deep-projects {
@@ -713,13 +811,20 @@ main {
     opacity: 1 !important;
     min-height: auto !important;
     height: auto !important;
-    overflow: visible !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
 
   .deep-projects {
     display: block !important;
     flex-direction: column !important;
     gap: 2rem !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
   }
 
   section#project-details {
@@ -728,7 +833,12 @@ main {
     opacity: 1 !important;
     min-height: auto !important;
     height: auto !important;
-    overflow: visible !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
 
   .detail-image {
@@ -745,8 +855,14 @@ main {
     opacity: 1 !important;
     min-height: auto !important;
     height: auto !important;
-    overflow: visible !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
     margin-bottom: 2rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
 
   article.project-detail {
@@ -816,6 +932,42 @@ main {
   .project-detail header .icon {
     display: inline-block !important;
     visibility: visible !important;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    overflow-x: hidden !important;
+    resize: vertical !important;
+  }
+
+  .contact-form label {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .contact {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .project-grid article {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
+  }
+
+  .project-grid article p,
+  .project-grid article h3,
+  .project-grid article ul {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    word-wrap: break-word !important;
   }
 }
 
@@ -930,6 +1082,16 @@ body.light .detail-grid section li {
 body.light .panel {
   background: rgba(255, 255, 255, 0.5);
   border-color: rgba(10, 10, 10, 0.15);
+}
+
+body.light .back-to-top {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #05070c;
+  box-shadow: 0 10px 30px rgba(124, 93, 255, 0.25);
+}
+
+body.light .back-to-top:hover {
+  box-shadow: 0 12px 40px rgba(124, 93, 255, 0.35);
 }
 
 body.light .tech-columns ul,
