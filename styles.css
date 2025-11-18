@@ -250,31 +250,34 @@ h3 {
   font-weight: 600;
   text-align: center;
   cursor: pointer;
-  transition: 0.25s ease;
+  transition: all 0.25s ease;
   text-decoration: none;
-  border: none;
+  border: 1px solid transparent;
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #4fc3f7, #0288d1);
-  color: #fff;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #05070c;
   border: none;
+  box-shadow: 0 10px 30px rgba(124, 93, 255, 0.25);
 }
 
 .btn.primary:hover {
-  background: linear-gradient(135deg, #81d4fa, #03a9f4);
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
   transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(124, 93, 255, 0.35);
 }
 
 .btn.ghost {
-  background: transparent;
-  border: 2px solid currentColor;
-  color: inherit;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid var(--border);
+  color: var(--text);
 }
 
 .btn.ghost:hover {
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
 .btn:focus-visible {
@@ -1178,11 +1181,12 @@ body.light .logo {
 
 body.light .btn.ghost {
   color: #0a0a0a;
-  border-color: rgba(10, 10, 10, 0.3);
+  border-color: rgba(10, 10, 10, 0.2);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 body.light .btn.ghost:hover {
-  background: rgba(10, 10, 10, 0.08);
+  background: rgba(255, 255, 255, 0.8);
   color: #0a0a0a;
 }
 
