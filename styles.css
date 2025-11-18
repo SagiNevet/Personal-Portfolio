@@ -577,6 +577,15 @@ main {
 }
 
 @media (max-width: 768px) {
+  .intro-loader {
+    z-index: 99999;
+  }
+
+  .intro-terminal {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    padding: 1rem 1.5rem;
+  }
+
   .nav {
     flex-wrap: wrap;
     border-radius: 24px;
@@ -631,17 +640,107 @@ main {
   .project-detail header {
     flex-direction: column;
   }
+
+  .panel {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .detail-image {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 body.light {
   --bg: #f8f9ff;
   --bg-soft: #ffffff;
   --bg-card: rgba(5, 7, 12, 0.03);
-  --text: #0f172a;
-  --text-muted: #4c4f63;
-  --border: rgba(5, 7, 12, 0.1);
+  --text: #0a0a0a;
+  --text-muted: #2a2a2a;
+  --border: rgba(5, 7, 12, 0.15);
   background: linear-gradient(180deg, #f8f9ff, #ebefff);
-  color: #0f172a;
+  color: #0a0a0a;
+}
+
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4 {
+  color: #0a0a0a;
+}
+
+body.light p {
+  color: #1a1a1a;
+}
+
+body.light .eyebrow {
+  color: var(--accent-2);
+}
+
+body.light .hero-hi {
+  color: var(--accent);
+}
+
+body.light .hero-name {
+  color: #0a0a0a;
+}
+
+body.light .hero-lead,
+body.light .hero-secondary {
+  color: #1a1a1a;
+}
+
+body.light .tag {
+  color: #0a0a0a;
+  border-color: rgba(10, 10, 10, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+body.light .nav-links a {
+  color: #2a2a2a;
+}
+
+body.light .nav-links a:hover,
+body.light .nav-links a:focus {
+  color: #0a0a0a;
+}
+
+body.light .logo {
+  color: #0a0a0a;
+}
+
+body.light .btn.ghost {
+  color: #0a0a0a;
+  border-color: rgba(10, 10, 10, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+body.light .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0a0a0a;
+}
+
+body.light .list-cards article,
+body.light .project-grid article,
+body.light .project-detail {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(10, 10, 10, 0.15);
+}
+
+body.light .panel {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(10, 10, 10, 0.15);
+}
+
+body.light .tech-columns ul,
+body.light .tech-columns li {
+  color: #1a1a1a;
+}
+
+body.light .pill-grid span {
+  color: #0a0a0a;
+  border-color: rgba(10, 10, 10, 0.2);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 @media (prefers-reduced-motion: reduce) {

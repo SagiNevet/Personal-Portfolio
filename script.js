@@ -9,19 +9,36 @@ const introTextEl = document.getElementById("intro-text");
 if (introLoader && introTextEl) {
   const introMessage = "Sagi Nevet";
   let introIndex = 0;
+  let timeoutId = null;
+
+  const removeLoader = () => {
+    introLoader.classList.add("hide");
+    setTimeout(() => {
+      if (introLoader.parentNode) {
+        introLoader.remove();
+      }
+    }, 500);
+  };
 
   const typeNext = () => {
     if (introIndex < introMessage.length) {
       introTextEl.textContent += introMessage[introIndex];
       introIndex += 1;
-      setTimeout(typeNext, 140);
+      timeoutId = setTimeout(typeNext, 140);
     } else {
-      introLoader.classList.add("hide");
-      setTimeout(() => introLoader.remove(), 500);
+      removeLoader();
     }
   };
 
   setTimeout(typeNext, 400);
+  
+  setTimeout(() => {
+    if (introLoader && introLoader.parentNode) {
+      removeLoader();
+    }
+  }, 5000);
+} else if (introLoader) {
+  introLoader.remove();
 }
 
 navToggle?.addEventListener("click", () => {
