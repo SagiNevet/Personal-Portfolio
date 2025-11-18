@@ -348,6 +348,14 @@ main {
   line-height: 1.8;
 }
 
+.education-date {
+  color: var(--accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
 .deep-projects {
   display: flex;
   flex-direction: column;
@@ -562,16 +570,22 @@ main {
 }
 
 .timeline article {
-  display: flex;
-  gap: 1rem;
   border-bottom: 1px solid var(--border);
   padding-bottom: 1rem;
+}
+
+.timeline article > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .timeline .year {
   font-weight: 600;
   color: var(--accent);
-  min-width: 120px;
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .contact {
@@ -858,6 +872,30 @@ main {
   .panel.duo p {
     text-align: left !important;
     line-height: 1.8 !important;
+  }
+
+  .education-date {
+    text-align: left !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .timeline .year {
+    text-align: left !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .timeline article > div {
+    text-align: left !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
   }
 
   .list-cards article {
