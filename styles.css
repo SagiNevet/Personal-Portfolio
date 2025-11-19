@@ -911,7 +911,7 @@ main {
     flex-direction: column;
   }
 
-  .panel {
+  body:not(.light) .panel {
     padding: clamp(1.5rem, 3vw, 2.5rem);
     background: rgba(8, 12, 20, 0.95) !important;
     border-color: var(--border) !important;
@@ -979,7 +979,7 @@ main {
     word-break: break-word !important;
   }
 
-  .panel.deep-projects {
+  body:not(.light) .panel.deep-projects {
     background: rgba(8, 12, 20, 0.95) !important;
     display: block !important;
     visibility: visible !important;
@@ -1021,7 +1021,7 @@ main {
     max-width: 100%;
   }
 
-  .deep-projects .project-detail {
+  body:not(.light) .deep-projects .project-detail {
     background: rgba(255, 255, 255, 0.12) !important;
     border-color: var(--border) !important;
     padding: 1.5rem !important;
@@ -1146,7 +1146,8 @@ main {
   }
 
   body.light .panel {
-    background: rgba(255, 255, 255, 0.95) !important;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: rgba(255, 255, 255, 0.98) !important;
     border-color: rgba(10, 10, 10, 0.15) !important;
     color: #0a0a0a !important;
   }
@@ -1155,14 +1156,16 @@ main {
   body.light .panel h2,
   body.light .panel h3,
   body.light .panel h4,
-  body.light .panel li {
+  body.light .panel li,
+  body.light .panel span {
     color: #0a0a0a !important;
   }
 
+  body.light .panel.deep-projects,
   body.light .deep-projects .project-detail,
   body.light .project-grid article,
   body.light .list-cards article {
-    background: rgba(255, 255, 255, 0.98) !important;
+    background: rgba(255, 255, 255, 0.99) !important;
     color: #0a0a0a !important;
   }
 }
@@ -1315,8 +1318,20 @@ body.light .detail-grid section li {
 }
 
 body.light .panel {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.92);
   border-color: rgba(10, 10, 10, 0.15);
+}
+
+body.light .panel h1,
+body.light .panel h2,
+body.light .panel h3,
+body.light .panel h4,
+body.light .panel h5,
+body.light .panel h6,
+body.light .panel p,
+body.light .panel li,
+body.light .panel span {
+  color: #0a0a0a;
 }
 
 body.light .back-to-top {
@@ -1349,7 +1364,7 @@ body.light .timeline article > div,
 body.light .contact-form label,
 body.light .contact-form input,
 body.light .contact-form textarea {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.96) !important;
   color: #0a0a0a !important;
   border-color: rgba(10, 10, 10, 0.15) !important;
 }
@@ -1357,6 +1372,20 @@ body.light .contact-form textarea {
 body.light .contact-form input,
 body.light .contact-form textarea {
   color: #0a0a0a !important;
+}
+
+body.light .panel.projects,
+body.light .panel.timeline,
+body.light .panel.contact,
+body.light .panel.duo {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(10, 10, 10, 0.18);
+}
+
+body.light .panel.projects .panel-header,
+body.light .panel.timeline article,
+body.light .panel.contact form {
+  background: rgba(255, 255, 255, 0.98);
 }
 
 @media (prefers-reduced-motion: reduce) {
