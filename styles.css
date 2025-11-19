@@ -1144,6 +1144,20 @@ main {
     overflow-x: hidden !important;
     word-wrap: break-word !important;
   }
+
+  body.light .panel {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: rgba(10, 10, 10, 0.15) !important;
+    color: #0a0a0a !important;
+  }
+
+  body.light .panel p,
+  body.light .panel h2,
+  body.light .panel h3,
+  body.light .panel h4,
+  body.light .panel li {
+    color: #0a0a0a !important;
+  }
 }
 
 body.light {

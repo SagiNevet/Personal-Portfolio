@@ -52,14 +52,23 @@ navAnchors.forEach((anchor) =>
 );
 
 const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
-const mobileQuery = window.matchMedia("(max-width: 768px)");
+const mobileQuery = window.matchMedia("(max-width: 1024px)");
+const mobileRegex = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i;
+let userThemeOverride = null;
 
 const applyTheme = (isLight) => {
   body.classList.toggle("light", isLight);
 };
 
+const isMobileDevice = () => mobileQuery.matches || mobileRegex.test(navigator.userAgent || "");
+
 const setInitialTheme = () => {
-  if (mobileQuery.matches) {
+  if (userThemeOverride !== null) {
+    applyTheme(userThemeOverride === "light");
+    return;
+  }
+
+  if (isMobileDevice()) {
     applyTheme(false);
   } else {
     applyTheme(prefersLight.matches);
@@ -69,21 +78,33 @@ const setInitialTheme = () => {
 setInitialTheme();
 
 prefersLight.addEventListener("change", (event) => {
-  if (!mobileQuery.matches) {
+  if (userThemeOverride === null && !isMobileDevice()) {
     applyTheme(event.matches);
   }
 });
 
-mobileQuery.addEventListener("change", (event) => {
-  if (event.matches) {
-    applyTheme(false);
-  } else {
-    applyTheme(prefersLight.matches);
+mobileQuery.addEventListener("change", () => {
+  if (userThemeOverride === null) {
+    setInitialTheme();
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (userThemeOverride === null) {
+    setInitialTheme();
+  }
+});
+
+window.addEventListener("orientationchange", () => {
+  if (userThemeOverride === null) {
+    setInitialTheme();
   }
 });
 
 themeToggle?.addEventListener("click", () => {
-  body.classList.toggle("light");
+  const nextIsLight = !body.classList.contains("light");
+  applyTheme(nextIsLight);
+  userThemeOverride = nextIsLight ? "light" : "dark";
 });
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
