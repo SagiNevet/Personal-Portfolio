@@ -52,13 +52,35 @@ navAnchors.forEach((anchor) =>
 );
 
 const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
+const mobileQuery = window.matchMedia("(max-width: 768px)");
 
 const applyTheme = (isLight) => {
   body.classList.toggle("light", isLight);
 };
 
-applyTheme(prefersLight.matches);
-prefersLight.addEventListener("change", (event) => applyTheme(event.matches));
+const setInitialTheme = () => {
+  if (mobileQuery.matches) {
+    applyTheme(false);
+  } else {
+    applyTheme(prefersLight.matches);
+  }
+};
+
+setInitialTheme();
+
+prefersLight.addEventListener("change", (event) => {
+  if (!mobileQuery.matches) {
+    applyTheme(event.matches);
+  }
+});
+
+mobileQuery.addEventListener("change", (event) => {
+  if (event.matches) {
+    applyTheme(false);
+  } else {
+    applyTheme(prefersLight.matches);
+  }
+});
 
 themeToggle?.addEventListener("click", () => {
   body.classList.toggle("light");
